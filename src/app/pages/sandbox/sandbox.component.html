@@ -1,0 +1,7 @@
+<div>
+    <h2>Sandbox</h2>
+    <button class="btn btn-danger m-2" (click)="increment()">Növelés!</button>
+    <button class="btn btn-danger" (click)="decrement()" [disabled]="counter <= 0">Csökkentés!</button>
+    <p>A mi kis számlálónk értéke: {{ counter }}</p>
+</div>
+

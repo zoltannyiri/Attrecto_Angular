@@ -1,0 +1,40 @@
+<div class="sorting-controls">
+  <select [(ngModel)]="sortBy" (change)="toggleSortDirection()">
+    <option value="title">Cím</option>
+    <option value="rating">Értékelés</option>
+    <option value="year">Év</option>
+  </select>
+  <button class="btn btn-link" (click)="toggleSortDirection()">
+    <i [class]="sortDirection === 'asc' ? 'bi bi-arrow-up' : 'bi bi-arrow-down'"></i>
+  </button>
+</div>
+<div class="movies-container">
+  <h1 class="text-center">Filmlista</h1>
+  <ul>
+    @for (movie of movies; track movie.id){
+    <li class="movie-item">
+      <div class="d-flex justify-content-between align-items-center">
+        <div>
+          <img src="{{ movie.thumbnail }}" alt="{{ movie.title }}" width="50" height="75">
+          <span class="ms-2">{{ movie.title }}</span>
+        </div>
+        @if(selectedMovieIndex === movie.id){
+        <div>
+          <form (ngSubmit)="saveEdit()" class="edit-form">
+            <input [(ngModel)]="editedTitle" name="editedTitle" type="text" class="form-control" required>
+            <button class="btn btn-success btn-sm" [disabled]="!editedTitle">Save</button>
+          </form>
+        </div>
+        }
+        <button class="btn btn-primary btn-sm" (click)="editMovie(movie.id)">
+          <i class="bi bi-pencil"></i>
+        </button>
+        
+        <button class="btn btn-danger btn-sm" (click)="deleteMovie(movie)">
+          <i class="bi bi-trash"></i>
+        </button>
+      </div>
+    </li>
+    }
+  </ul>
+</div>
