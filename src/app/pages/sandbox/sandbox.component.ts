@@ -9,11 +9,11 @@ import { Component } from '@angular/core';
 export class SandboxComponent {
   counter = 0;
 
-  increment() {
+  increaseCounter() {
     this.counter++;
   }
 
-  decrement() {
+  decreaseCounter() {
     this.counter--;
   }
 }

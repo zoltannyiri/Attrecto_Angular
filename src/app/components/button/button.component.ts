@@ -7,14 +7,12 @@ import { Component, EventEmitter, Input, Output } from '@angular/core';
   standalone: true,
 })
 export class ButtonComponent {
-  
-  //Első feladat
-  @Input() label = ''; 
 
-  //Második feladat
-  @Output() clicked = new EventEmitter<void>(); 
+  @Input() label = '';
+
+  @Output() clicked = new EventEmitter<void>();
 
   onClick(): void {
-    this.clicked.emit(); 
+    this.clicked.emit();
   }
 }

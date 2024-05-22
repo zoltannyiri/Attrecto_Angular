@@ -14,8 +14,7 @@ export class HomeComponent {
 
   title = 'internship-angular-test-2024';
 
-  //Második feladat
   onButtonClick(): void {
-    alert('Gomb klikkelve!');
+    console.log("Gomb megnyomva");
   }
 }

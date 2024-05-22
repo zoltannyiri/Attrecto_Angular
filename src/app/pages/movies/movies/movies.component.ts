@@ -13,7 +13,7 @@ import {NgForm, FormsModule} from '@angular/forms';
 export class MoviesComponent implements OnInit {
 
   sortDirection: string = 'desc';
-  sortBy: string = 'rating';
+  sortBy: string = 'rate';
   selectedMovieIndex: number | null = null;
   editedTitle: string = '';
   movies: Movie[] = [];
@@ -57,26 +57,27 @@ export class MoviesComponent implements OnInit {
     this.selectedMovieIndex = null;
     this.editedTitle = '';
   }
-  
+
   sortMovies(): void {
-    switch (this.sortBy) {
-      case 'year':
-        this.movies.sort((a, b) => (this.sortDirection === 'asc' ? a.year - b.year : b.year - a.year));
-        break;
-      case 'title':
-        this.movies.sort((a, b) => (this.sortDirection === 'asc' ? a.title.localeCompare(b.title) : b.title.localeCompare(a.title)));
-        break;
-      case 'rating':
-        this.movies.sort((a, b) => (this.sortDirection === 'asc' ? a.rating - b.rating : b.rating - a.rating));
-        break;
-      default:
-        break;
-    }
+    this.movies.sort((a, b) => {
+      switch (this.sortBy) {
+        case 'year':
+          return this.sortDirection === 'asc' ? a.year - b.year : b.year - a.year;
+        case 'title':
+          return this.sortDirection === 'asc' ? a.title.localeCompare(b.title) : b.title.localeCompare(a.title);
+        case 'rate':
+          return this.sortDirection === 'asc' ? a.rating - b.rating : b.rating - a.rating;
+        default:
+          return 0;
+      }
+    });
   }
+
 
   toggleSortDirection(): void {
     this.sortDirection = this.sortDirection === 'asc' ? 'desc' : 'asc';
-    this.sortMovies(); 
+    this.sortMovies();
   }
-  
+
+
 }

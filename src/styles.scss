@@ -2,3 +2,13 @@
 @use 'bootstrap/scss/bootstrap';
 @use 'bootstrap-icons';
 
+@import "tailwindcss/base";
+@import "tailwindcss/components";
+@import "tailwindcss/utilities";
+
+
+body {
+  background-image: url('/assets/img/wp2.webp');
+  background-repeat: no-repeat;
+  background-size: cover;
+}
