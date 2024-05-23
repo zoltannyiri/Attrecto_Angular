@@ -1,14 +1,16 @@
 <div class="test">
-  <div class="sorting-controls">
+  <br>
+  <div class="sorting-controls justify-content-center">
     <select id="menucolor" [(ngModel)]="sortBy" (change)="toggleSortDirection()">
       <option value="title" id="">Cím</option>
       <option value="rate" id="">Értékelés</option>
       <option value="year" id="">Év</option>
     </select>
-    <button class="btn btn-link" (click)="toggleSortDirection()">
-      <i [class]="sortDirection === 'asc' ? 'bi bi-arrow-down-up' : 'bi bi-arrow-down-up'"></i>
-    </button>
+
   </div>
+  <button class="btn btn-link sorting-controls justify-content-end" (click)="toggleSortDirection()">
+    <i [class]="sortDirection === 'asc' ? 'bi bi-arrow-down-up' : 'bi bi-arrow-down-up'"></i>
+  </button>
   <div class="movies-container ">
     <h1 id="cimszin" class="text-center">Filmlista</h1>
     <ul>
@@ -28,11 +30,11 @@
           </div>
           }
           <button class="btn btn-primary btn-sm" (click)="editMovie(movie.id)">
-            <i class="bi bi-pencil"></i>
+            <i class="bi bi-pen-fill"></i>
           </button>
 
           <button class="btn btn-secondary btn-sm" (click)="deleteMovie(movie)">
-            <i class="bi bi-trash"></i>
+            <i class="bi bi-trash2-fill"></i>
           </button>
         </div>
       </li>
